@@ -1,5 +1,8 @@
 # Geotrellis GDAL Example Project
 
+The purpose of this project is to have a concise example of creating a Docker image with
+GDAL compiled with Java JNI bindings, and then running a Geotrellis GDAL read from that image.
+
 ## TL;DR
 
     cd docker
