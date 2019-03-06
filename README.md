@@ -14,6 +14,10 @@ GDAL compiled with Java JNI bindings, and then running a Geotrellis GDAL read fr
     aws s3 cp s3://modis-pds/MCD43A4.006/21/11/2017006/MCD43A4.A2017006.h21v11.006.2017018074804_B01.TIF .
     docker run -it -v $(pwd):/data geotrellis-gdal-example
     
+## Running 
+
+When running java, run with `-Djava.library.path=/usr/local/lib/`.
+    
 ## Base Docker Image (docker/Dockerfile)
 
 This Dockerfile creates and image with the following:
@@ -23,9 +27,23 @@ This Dockerfile creates and image with the following:
 * Python 3
 * AWS CLI
 
-### Provenance
+## AMI with Amazon Linux (classic) for EMR
+
+This builds a Amazon Linux-based AMI suitable for use in EMR. 
+
+First, [https://www.packer.io/docs/install/index.html](install Packer).
+
+Then run:
+
+    PACKER_LOG=1 packer build ami/packer.json 
+
+## References
+
 * GDAL derived from [s22s/geo-swak](https://github.com/s22s/geo-swak), which itself is based 
   mostly on [geographica/gdal2](https://github.com/GeographicaGS/Docker-GDAL2), and to a lesser extent 
   [geodata/gdal](https://github.com/geo-data/gdal-docker)
-* Python install based on [https://askubuntu.com/questions/865554/how-do-i-install-python-3-6-using-apt-get]
+* Python install based on [Ask Ubuntu: How do I install Python 3.6 using apt-get?](https://askubuntu.com/questions/865554/how-do-i-install-python-3-6-using-apt-get)
+* [HOW TO: Install latest geospatial & scientific software on Linux](http://scigeo.org/articles/howto-install-latest-geospatial-software-on-linux.html])
+* This was as useful like for building GDAL, even though it's for MacOS: [Enabling gdal java binding for Geoserver on macOS](http://www.ecgs.lu/gilles/enabling-gdal-java-binding-for-geoserver-on-macos/)
+* [Official GDAL build instructions](https://trac.osgeo.org/gdal/wiki/GdalOgrInJavaBuildInstructionsUnix)
 
