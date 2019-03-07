@@ -31,7 +31,7 @@ This Dockerfile creates and image with the following:
 
 This builds a Amazon Linux-based AMI suitable for use in EMR. 
 
-First, [https://www.packer.io/docs/install/index.html](install Packer).
+First, [install Packer](https://www.packer.io/docs/install/index.html).
 
 Then run:
 
